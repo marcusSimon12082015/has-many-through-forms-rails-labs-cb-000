@@ -6,4 +6,11 @@ class Post < ActiveRecord::Base
 
 
   accepts_nested_attributes_for :comments
+  accepts_nested_attributes_for :category, reject_if: :reject_category
+
+
+  def reject_category(attributes)
+    attributes['username'].blank?
+  end
+
 end
