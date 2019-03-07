@@ -4,13 +4,13 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :users, through: :comments
 
-
   accepts_nested_attributes_for :comments
-  accepts_nested_attributes_for :category, reject_if: :reject_category
 
+  accepts_nested_attributes_for :categories, reject_if: :reject_categoryies
 
-  def reject_category(attributes)
-    attributes['username'].blank?
+  
+  def reject_categories(attributes)
+    attributes['name'].blank?
   end
 
 end
