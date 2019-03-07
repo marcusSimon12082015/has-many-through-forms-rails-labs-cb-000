@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :comments
 
-  accepts_nested_attributes_for :categories, reject_if: :reject_categoryies
+  accepts_nested_attributes_for :categories, reject_if: :reject_categories
 
   def reject_categories(attributes)
     attributes['name'].blank?
