@@ -1,6 +1,10 @@
 <%=content_tag(:div,"Title: " + @post.title) %>
 <%=content_tag(:div,"Content: "+ @post.content) %>
-<%=content_tag(:div,"Category: "+ @post.category.name) %>
+
+<% @post.categories.each do |category| %>
+  <p><%= category.name %></p>
+<% end %>
+
 <% @post.comments.each do |comment| %>
   <p><%= comment.user.username %> says: <%= comment.content %></p>
 <% end %>
