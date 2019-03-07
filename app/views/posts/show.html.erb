@@ -1,5 +1,6 @@
 <%=content_tag(:div,"Title: " + @post.title) %>
 <%=content_tag(:div,"Content: "+ @post.content) %>
+<% binding.pry %>
 <% @post.comments.each do |comment| %>
   <p><%= comment.user.username %> says: <%= comment.content %></p>
 <% end %>
