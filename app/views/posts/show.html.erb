@@ -8,6 +8,11 @@
 <% @post.comments.each do |comment| %>
   <p><%= comment.user.username %> says: <%= comment.content %></p>
 <% end %>
+
+<% @post.users.uniq{|u| u.username }.each do |user| %>
+  <p><%= link_to user.username, user %></p>
+<% end %>
+
 <%= form_for @comment do |f| %>
   <%= f.label :content %>:
   <%= f.text_field :content %><br>
